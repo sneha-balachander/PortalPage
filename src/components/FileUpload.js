@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./FileUpload.css";
-
+import myImage from "../asset/data_extraction.jpg";
 function FileUpload() {
   const [ApiKey, setApiKey] = useState("");
   const [isDragging, setIsDragging] = useState(false);
@@ -34,7 +34,7 @@ function FileUpload() {
   };
 
   const handleFileChange = (e) => {};
-  const url = "../asset/data_extraction.jpg";
+
   return (
     <div>
       <div className="row">
@@ -83,7 +83,17 @@ function FileUpload() {
           {extractedData ? (
             " "
           ) : (
-            <div>Upload your files here to get your important data!</div>
+            <div>
+              Upload your files here to get your important data!
+              <div className="d-flex justify-content-center align-items-center">
+                <img
+                  src={myImage}
+                  alt="dataExtraction"
+                  width="350px"
+                  height="350px"
+                />
+              </div>
+            </div>
           )}
         </div>
       </div>
