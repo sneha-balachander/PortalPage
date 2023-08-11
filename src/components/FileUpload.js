@@ -1,7 +1,10 @@
 import React, { Component, useState } from "react";
 import "./FileUpload.css";
 import FileDownload from "./FileDownload";
-function FileUpload(props) {
+import myImage from "../asset/data_extraction.jpg";
+
+
+function FileUpload() {
   const [ApiKey, setApiKey] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState([]);
@@ -85,9 +88,21 @@ function FileUpload(props) {
           </form>
         </div>
         <div className="col-6 container">
-          {extractedData
-            ? <FileDownload/>
-            : "Upload your files here to get your important data!"}
+          {extractedData ? (
+            <FileDownload/>
+          ) : (
+            <div>
+              Upload your files here to get your important data!
+              <div className="d-flex justify-content-center align-items-center">
+                <img
+                  src={myImage}
+                  alt="dataExtraction"
+                  width="350px"
+                  height="350px"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
