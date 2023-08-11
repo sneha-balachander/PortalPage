@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./FileUpload.css";
+
 function FileUpload() {
   const [ApiKey, setApiKey] = useState("");
   const [isDragging, setIsDragging] = useState(false);
@@ -33,7 +34,7 @@ function FileUpload() {
   };
 
   const handleFileChange = (e) => {};
-
+  const url = "../asset/data_extraction.jpg";
   return (
     <div>
       <div className="row">
@@ -79,9 +80,11 @@ function FileUpload() {
           </form>
         </div>
         <div className="col-6 container">
-          {extractedData
-            ? " "
-            : "Upload your files here to get your important data!"}
+          {extractedData ? (
+            " "
+          ) : (
+            <div>Upload your files here to get your important data!</div>
+          )}
         </div>
       </div>
     </div>
