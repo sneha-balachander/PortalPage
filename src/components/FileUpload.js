@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import "./FileUpload.css";
-function FileUpload() {
+import FileDownload from "./FileDownload";
+function FileUpload(props) {
   const [ApiKey, setApiKey] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState([]);
   const [extractedData, setExtractedData] = useState(false);
-
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.setFlag(true);
+    setExtractedData(true)
+  };
 
   const handleChange = (e) => {
     setApiKey(e.target.value);
@@ -32,7 +36,9 @@ function FileUpload() {
     setFile(droppedFiles);
   };
 
-  const handleFileChange = (e) => {};
+  const handleFileChange = (e) => {
+    console.log(e);
+  };
 
   return (
     <div>
@@ -80,7 +86,7 @@ function FileUpload() {
         </div>
         <div className="col-6 container">
           {extractedData
-            ? " "
+            ? <FileDownload/>
             : "Upload your files here to get your important data!"}
         </div>
       </div>
