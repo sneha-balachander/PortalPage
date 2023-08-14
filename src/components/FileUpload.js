@@ -11,7 +11,7 @@ function FileUpload() {
   const [extractedData, setExtractedData] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.setFlag(true);
+    
     setExtractedData(true)
   };
 
